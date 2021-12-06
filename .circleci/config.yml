@@ -21,6 +21,8 @@ jobs:
   Print-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    requires:
+      - say-hello:
     docker:
       - image: cimg/base:stable
     # Add steps to the job
@@ -33,6 +35,8 @@ jobs:
   Print-world:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+        requires:
+      - Print-hello:
     docker:
       - image: cimg/base:stable
     # Add steps to the job
