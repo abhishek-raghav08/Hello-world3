@@ -35,7 +35,7 @@ jobs:
           command: |
             echo $MY_ENV_VAR > output.txt
       - persist_to_workspace:
-            root: /tmp/dir
+            root: /
             paths:
               - "output.txt"
 
