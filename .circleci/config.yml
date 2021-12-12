@@ -23,7 +23,7 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     
     docker:
-      - image: cimg/base:2020.01
+      - image: cimg/base:stable
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
         environment:
@@ -52,6 +52,9 @@ jobs:
       - run:
           name: "world"
           command: "echo World!"
+      - attach_workspace:
+          at: ~/
+      - run: cat ~/output.txt
           
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
