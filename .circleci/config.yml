@@ -33,7 +33,11 @@ jobs:
       - run:
           name: "Echo Env Variable"
           command: |
-            echo $MY_ENV_VAR
+            echo $MY_ENV_VAR > output.txt
+      - persist_to_workspace:
+            root: /tmp/workspace
+            paths:
+              - "output.txt"
 
   Print-world:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
